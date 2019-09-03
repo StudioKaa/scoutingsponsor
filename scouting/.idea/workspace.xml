@@ -1,26 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="8615072f-005f-4629-ba81-a8b5cca9d02d" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Auth/RegisterController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Auth/RegisterController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/persoonController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/persoonController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/auth/register.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/auth/register.blade.php" afterDir="false" />
-    </list>
+    <list default="true" id="8615072f-005f-4629-ba81-a8b5cca9d02d" name="Default Changelist" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="ComposerSettings" doNotAsk="true" synchronizationState="SYNCHRONIZE">
+  <component name="ComposerSettings" synchronizationState="SYNCHRONIZE">
     <pharConfigPath>$PROJECT_DIR$/composer.json</pharConfigPath>
     <execution>
       <executable />
     </execution>
-  </component>
-  <component name="Git.Settings">
-    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
   </component>
   <component name="PhpWorkspaceProjectConfiguration">
     <include_path>
@@ -108,7 +100,6 @@
     </include_path>
   </component>
   <component name="ProjectId" id="1QGuizOSCgBWF5mQl82TXj38ogJ" />
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
@@ -147,26 +138,11 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1567409388952</updated>
-      <workItem from="1567409402470" duration="15293000" />
-      <workItem from="1567511346745" duration="59000" />
-      <workItem from="1567511407449" duration="944000" />
+      <workItem from="1567409402470" duration="20306000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
-  </component>
-  <component name="Vcs.Log.Tabs.Properties">
-    <option name="TAB_STATES">
-      <map>
-        <entry key="MAIN">
-          <value>
-            <State>
-              <option name="COLUMN_ORDER" />
-            </State>
-          </value>
-        </entry>
-      </map>
-    </option>
   </component>
 </project>

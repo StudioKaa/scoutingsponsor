@@ -43,10 +43,10 @@ class persoonController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id, $user)
+    public function show($id)
     {
-        $persoon = \DB::select('SELECT * FROM user ');
-        return $user;
+       // $persoon = \DB::select('SELECT * FROM persoon');
+        //return $presoon;
     }
 
     /**
