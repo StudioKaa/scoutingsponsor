@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-class plotsController extends Controller
+class persoonController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -23,7 +23,7 @@ class plotsController extends Controller
      */
     public function create()
     {
-
+    //
     }
 
     /**
@@ -45,7 +45,8 @@ class plotsController extends Controller
      */
     public function show($id)
     {
-        //
+        $persoon = \DB::select('SELECT * FROM persoon');
+        return $presoon;
     }
 
     /**

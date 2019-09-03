@@ -15,4 +15,9 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::resource('home', 'plotsController');
+Route::get('/personen', 'persoonController@index');
+
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
