@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-class plotsController extends Controller
+class sponsersController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -24,6 +24,7 @@ class plotsController extends Controller
     public function create()
     {
 
+        return view('sponser/sponser');
     }
 
     /**
@@ -32,9 +33,24 @@ class plotsController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
+
+
     public function store(Request $request)
     {
-        //
+        \DB::table('sponsers')
+            ->insert([
+                'name' => $request->name,
+                'achternaam' => $request->achternaam,
+                'email' => $request->email,
+                'telfoon' => $request->telfoon,
+                'addres' => $request->addres,
+                'postcode' => $request->postcode
+
+            ]);
+
+        return view('sponser/sponser');
+
+
     }
 
     /**

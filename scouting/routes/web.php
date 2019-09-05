@@ -14,10 +14,4 @@
 Route::get('/', function () {
     return view('welcome');
 });
-
-Route::get('/personen', 'persoonController@index');
-
-
-Auth::routes();
-
-Route::get('/home', 'HomeController@index')->name('home');
+Route::resource('sponsers', 'sponsersController');
