@@ -1,0 +1,81 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Calibri;
+}
+
+header {
+    background-image: url("../img/headerBG.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    height: 350px;
+}
+
+header .container {
+    background: rgba(0, 0, 0, 0.4);
+    height: 100%;
+    width: 100%;
+    display: flex;
+}
+
+header .container img {
+    max-height: 75px;
+}
+
+header .container h1 {
+    margin: 150px auto 0 18%;
+    color: #fff;
+    font-weight: bold;
+    font-size: 3em;
+}
+
+main .info {
+    width: 50%;
+    height: 75%;
+    position: fixed;
+    z-index: 10;
+    left: 25%;
+    top: 12%;
+    background: rgb(231, 238, 231);
+    border: 2px solid #000;
+    padding: 10px 20px;
+}
+
+main .info h2 {
+    text-align: center;
+}
+
+main .info img {
+    width: 100%;
+}
+
+main .info .close {
+    background: rgb(69, 197, 59);
+    display: inline;
+    padding: 3px 15px;
+}
+
+main .info .close:hover {
+    cursor: pointer;
+}
+
+main .plattegrond {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    background: rgb(69, 197, 59);
+    padding: 20px 0;
+}
+
+main .plattegrond h2 {
+    font-size: 3em;
+    margin: 0;
+    padding-bottom: 20px;
+}
+
+main .plattegrond img {
+    width: 1100px;
+    height: 832px;
+}
