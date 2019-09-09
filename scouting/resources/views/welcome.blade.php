@@ -20,6 +20,7 @@
                     $('#squidhead').mouseout();
                 }).click(function(e) { e.preventDefault(); });
             });
+
         </script>
     </head>
     <body>
@@ -57,30 +58,21 @@
             <h2>Sponser nu een stuk terein</h2>
             <img src="img/plattegrond V3.png" class="map" usemap="#simple">
             <map name="simple">
-                <?php
-                $width = 44; // repeat 23x
-                $height = 26; // repeat 31x
-                $row = 0;
-                $coords = array();
-                for ( $y = 0; $y < 32; $y++)
-                {
-                    for($x = 0; $x < 25; $x++)
-                    {
-                        $xTop = $x * $width;
-                        $yTop = $row;
-                        $xBottom = $xTop + $width;
-                        $yBottom = $yTop + $height;
 
-                        echo "<area class='area {$x},{$y}' shape='rect' coords='{$xTop}, {$yTop}, {$xBottom}, {$yBottom}' href='javascript:void(0)' alt='area{$x},{$y}'>";
-                        array_push($coords, "{$x}, {$y}");
-                    }
+                @foreach($plots as $plot)
+                    <?php
+                        $xTop = $plot->x * 44;
+                        $yTop = $plot->y * 26;
+                        $xBottom = $xTop + 44;
+                        $yBottom = $yTop + 26;
+                   
+                        echo "<area class='area {$plot->x},{$plot->y}' shape='rect' coords='{$xTop}, {$yTop}, {$xBottom}, {$yBottom}' href=\"plots/{$plot->id}\" alt='area{$plot->x},{$plot->y}'>";
+                    ?>
+                @endforeach
 
-                    $row = $row + $height;
-                }
-                //            var_dump($coords);
-                ?>
             </map>
         </div>
+
     </main>
     <footer>
 

@@ -18,9 +18,11 @@
 <<<<<<< Updated upstream
   <component name="ComposerSettings" doNotAsk="true" synchronizationState="SYNCHRONIZE">
     <pharConfigPath>$PROJECT_DIR$/composer.json</pharConfigPath>
+<<<<<<< Updated upstream
     <execution>
       <executable />
     </execution>
+=======
   </component>
   <component name="PhpWorkspaceProjectConfiguration">
     <include_path>

@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-class scoutingController extends Controller
+class plotsController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -13,7 +13,8 @@ class scoutingController extends Controller
      */
     public function index()
     {
-        //
+        $plots = \DB::select('SELECT * FROM plots');
+        return view('plots/index', ['plots'=>$plots]);
     }
 
     /**
@@ -23,7 +24,7 @@ class scoutingController extends Controller
      */
     public function create()
     {
-        //
+        return view('plots/create');
     }
 
     /**
@@ -34,7 +35,13 @@ class scoutingController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        \DB::table('plots')
+        ->insert([
+            'name'          => $request->plot, 
+            'sold'   =>$request->sold
+        ]);
+        
+        return redirect()->route('plots.index');
     }
 
     /**
@@ -45,7 +52,16 @@ class scoutingController extends Controller
      */
     public function show($id)
     {
-        //
+        
+        //1 id ophalen
+        //2 1 categorie selecteren uit database
+        //show teplate returnen metopgehaalde data
+        $plot = \DB::table('plots')
+            ->where('id',$id )
+            ->first();
+
+        return view('plots/show', 
+            ['plot'=>$plot]);           
     }
 
     /**
@@ -56,7 +72,12 @@ class scoutingController extends Controller
      */
     public function edit($id)
     {
-        //
+        $plot = \DB::table('plots')
+        ->where('id',$id )
+        ->first();
+
+    return view("plots/edit", 
+        ['plot'=>$plot]);    
     }
 
     /**
@@ -68,7 +89,14 @@ class scoutingController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        \DB::table('plots')
+            ->where('id', $id)
+            ->update([
+                'name'          => $request->plot,
+                'sold'   =>$request->sold
+            ]);
+        
+        return redirect()->route('plots.index');
     }
 
     /**
@@ -79,6 +107,10 @@ class scoutingController extends Controller
      */
     public function destroy($id)
     {
-        //
+    }
+    
+    public function returning()
+    {
+        return view('welcome');
     }
 }

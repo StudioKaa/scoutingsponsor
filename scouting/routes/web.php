@@ -12,6 +12,9 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
-});
-Route::resource('sponsers', 'sponsersController');
+        $plots = \DB::select('SELECT * FROM plots');
+        return view('welcome', ['plots'=>$plots]);
+})->name('home');
+
+Route::resource('plots', 'plotsController');
+
