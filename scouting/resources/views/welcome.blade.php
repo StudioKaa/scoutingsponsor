@@ -57,11 +57,12 @@
             <h2>Sponser nu een stuk terein</h2>
             <img src="img/plattegrond V3.png" class="map" usemap="#simple">
             <map name="simple">
-                <?php
+            <?php
                 $width = 44; // repeat 23x
                 $height = 26; // repeat 31x
                 $row = 0;
-                $coords = array();
+                $Xcoords = array();
+                $Ycoords = array();
                 for ( $y = 0; $y < 32; $y++)
                 {
                     for($x = 0; $x < 25; $x++)
@@ -72,13 +73,13 @@
                         $yBottom = $yTop + $height;
 
                         echo "<area class='area {$x},{$y}' shape='rect' coords='{$xTop}, {$yTop}, {$xBottom}, {$yBottom}' href='javascript:void(0)' alt='area{$x},{$y}'>";
-                        array_push($coords, "{$x}, {$y}");
+                        array_push($Xcoords, "{$x}");
+                        array_push($Ycoords, "{$y}");
                     }
 
                     $row = $row + $height;
                 }
-                //            var_dump($coords);
-                ?>
+            ?>
             </map>
         </div>
     </main>

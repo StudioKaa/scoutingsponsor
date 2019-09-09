@@ -11,7 +11,5 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::resource('/', 'scoutingController');
 Route::resource('sponsers', 'sponsersController');

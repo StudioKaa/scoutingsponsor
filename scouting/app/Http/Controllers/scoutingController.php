@@ -13,7 +13,36 @@ class scoutingController extends Controller
      */
     public function index()
     {
-        //
+            $height = 26; // repeat 31x
+            $row = 0;
+            $Xcoords = array();
+            $Ycoords = array();
+            for ( $y = 0; $y < 32; $y++)
+            {
+                for($x = 0; $x < 25; $x++)
+                {
+                    array_push($Xcoords, "{$x}");
+                    array_push($Ycoords, "{$y}");
+                }
+
+                $row = $row + $height;
+            }
+
+            \DB::table('plots')->truncate();
+            for ($i = 0; $i < 800; $i++){
+                $Xcoord = $Xcoords[$i];
+                $Ycoord = $Ycoords[$i];
+
+                \DB::table('plots')->insert([
+                    'naam' => "test{$i}",
+                    'x' => $Xcoord,
+                    'y' => $Ycoord,
+                    'type' => 1,
+                    'price' => $i
+                ]);
+            }
+
+        return view('welcome');
     }
 
     /**
