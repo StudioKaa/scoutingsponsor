@@ -1,7 +1,5 @@
-<form method="POST" action="{{route('plots.store',$plot->id)}}">
+<!-- <form action="{{route('plots.store')}}" method="POST">
         @csrf
-        @method('PATCH')
-        
         
         <div class="form-group">
         <label for="name">naam</label><br>
@@ -19,8 +17,8 @@
     </div>
 
     <div class="form-group">
-    <label for="telefoon">telefoon</label><br>
-        <input type="tel" id="telefoon" name="telefoon" required><br>
+    <label for="phone">telefoon</label><br>
+        <input type="tel" id="phone" name="phone" required><br>
     </div>
 
     <div class="form-group">
@@ -38,4 +36,4 @@
         <input type="submit" value="koop plot">
     </form>
     <h1>{{$plot->name}}</h1>
-    <p>{{$plot->sold}}</p>
+    <p>{{$plot->sold}}</p> -->

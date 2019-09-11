@@ -35,15 +35,23 @@ class plotsController extends Controller
      */
     public function store(Request $request)
     {
-        \DB::table('sponsers')
+        $user = \DB::table('sponsers')
         ->insert([
             'name'          =>$request->name, 
             'lastname'      =>$request->lastname,
-            'telefoon'      =>$request->telefoon,
+            'phone'         =>$request->phone,
             'adres'         =>$request->adres,
             'email'         =>$request->email
         ]);
-        
+        $sponserId = \DB::getPdo()->lastInsertId();
+
+        \DB::table('plots')
+            ->where('id', $request->plotId)
+            ->update([
+                'sold'          => $request->sold,
+                'sponserId'     => $sponserId
+            ]);
+
         
         return redirect()->route('plots.index');
     }

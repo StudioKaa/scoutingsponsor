@@ -38,9 +38,7 @@
 </form> -->
     <form method="POST" action="{{route('plots.store')}}">
         @csrf
-        @method('PATCH')
-        
-        
+     
         <div class="form-group">
         <label for="name">naam</label><br>
         <input type="text" id="name" name="name" required><br>
@@ -52,8 +50,8 @@
     </div>
 
     <div class="form-group">
-    <label for="telefoon">telefoon</label><br>
-        <input type="tel" id="telefoon" name="telefoon" required><br>
+    <label for="phone">telefoon</label><br>
+        <input type="tel" id="phone" name="phone" required><br>
     </div>
 
     <div class="form-group">
@@ -66,7 +64,7 @@
         <input type="email" id="email" name="email" required><br>
     </div>
 
-
+        <input type="hidden" name="plotId" value="{{$plot->id}} ">
         <input type="hidden" name="sold" value="1">
         <input type="submit" value="koop plot">
     </form>
