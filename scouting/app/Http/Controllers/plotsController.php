@@ -35,11 +35,15 @@ class plotsController extends Controller
      */
     public function store(Request $request)
     {
-        \DB::table('plots')
+        \DB::table('sponsers')
         ->insert([
-            'name'          => $request->plot, 
-            'sold'   =>$request->sold
+            'name'          =>$request->name, 
+            'lastname'      =>$request->lastname,
+            'telefoon'      =>$request->telefoon,
+            'adres'         =>$request->adres,
+            'email'         =>$request->email
         ]);
+        
         
         return redirect()->route('plots.index');
     }
@@ -52,16 +56,22 @@ class plotsController extends Controller
      */
     public function show($id)
     {
-        
+        $data =\DB::select
+        ('SELECT * 
+        FROM `plots` as p 
+        left join sponsers as s 
+        on p.sponserId=s.id');
+
         //1 id ophalen
         //2 1 categorie selecteren uit database
         //show teplate returnen metopgehaalde data
         $plot = \DB::table('plots')
             ->where('id',$id )
             ->first();
+            //dd($plot);
 
         return view('plots/show', 
-            ['plot'=>$plot]);           
+            ['plot'=>$plot, 'data'=>$data]);           
     }
 
     /**
@@ -77,7 +87,7 @@ class plotsController extends Controller
         ->first();
 
     return view("plots/edit", 
-        ['plot'=>$plot]);    
+        ['plot'=>$plot , 'id'=>$id]);    
     }
 
     /**
@@ -92,11 +102,11 @@ class plotsController extends Controller
         \DB::table('plots')
             ->where('id', $id)
             ->update([
-                'name'          => $request->plot,
+                'name'          => $request->name,
                 'sold'   =>$request->sold
             ]);
         
-        return redirect()->route('plots.index');
+        return redirect()->route('home');
     }
 
     /**
@@ -107,10 +117,7 @@ class plotsController extends Controller
      */
     public function destroy($id)
     {
+        
     }
     
-    public function returning()
-    {
-        return view('welcome');
-    }
 }

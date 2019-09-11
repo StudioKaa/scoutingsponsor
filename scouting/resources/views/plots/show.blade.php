@@ -6,10 +6,22 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
 </head>
+<?php
+
+
+?>
 <body>
     <h1>{{$plot->name}}</h1>
     <p>{{$plot->sold}}</p>
-    <!-- <a href="{{ route('plots.edit', $plot->id) }}">edit</a></p> -->
-    <a href="{{ route('home') }}">Go back to all plots</a></p>
+    
+
+       @if($plot->sold == 0) 
+        <a href="{{ route('plots.edit', $plot->id) }}">edit</a><br>     
+       @endif
+  
+    <a href="{{ route('home') }}">Go back to all plots</a>
+
+
+
 </body>
 </html>
