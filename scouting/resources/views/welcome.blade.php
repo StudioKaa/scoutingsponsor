@@ -26,7 +26,7 @@
     <body>
     <header>
         <div class="container">
-            <img src="img/logo.png" alt="logo">
+            <img src="img/logo.png" alt="logo" style="margin: 20px;">
             <h1>Sponser Scouting Raamsdonksveer</h1>
         </div>
     </header>
@@ -55,7 +55,7 @@
 
         <!-- de plattegrond -->
         <div class="plattegrond">
-            <h2>Sponser nu een stuk terein</h2>
+            <h2>Sponser nu een stuk terrein</h2>
             <img src="img/plattegrond V3.png" class="map" usemap="#simple">
             <map name="simple">
 
@@ -65,7 +65,7 @@
                         $yTop = $plot->y * 26;
                         $xBottom = $xTop + 44;
                         $yBottom = $yTop + 26;
-                   
+
                         echo "<area class='area {$plot->x},{$plot->y}' shape='rect' coords='{$xTop}, {$yTop}, {$xBottom}, {$yBottom}' href=\"plots/{$plot->id}\" alt='area{$plot->x},{$plot->y}'>";
                     ?>
                 @endforeach

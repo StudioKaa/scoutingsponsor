@@ -37,7 +37,7 @@ class plotsController extends Controller
     {
         $user = \DB::table('sponsers')
         ->insert([
-            'name'          =>$request->name, 
+            'name'          =>$request->name,
             'lastname'      =>$request->lastname,
             'phone'         =>$request->phone,
             'adres'         =>$request->adres,
@@ -52,7 +52,7 @@ class plotsController extends Controller
                 'sponserId'     => $sponserId
             ]);
 
-        
+
         return redirect()->route('plots.index');
     }
 
@@ -64,11 +64,10 @@ class plotsController extends Controller
      */
     public function show($id)
     {
-        $data =\DB::select
-        ('SELECT * 
-        FROM `plots` as p 
+        $data =\DB::select('SELECT * 
+        FROM `plots` 
         left join sponsers as s 
-        on p.sponserId=s.id');
+        on plots.sponserId=s.id');
 
         //1 id ophalen
         //2 1 categorie selecteren uit database
@@ -78,8 +77,8 @@ class plotsController extends Controller
             ->first();
             //dd($plot);
 
-        return view('plots/show', 
-            ['plot'=>$plot, 'data'=>$data]);           
+        return view('plots/show',
+            ['plot'=>$plot, 'data'=>$data]);
     }
 
     /**
@@ -94,8 +93,8 @@ class plotsController extends Controller
         ->where('id',$id )
         ->first();
 
-    return view("plots/edit", 
-        ['plot'=>$plot , 'id'=>$id]);    
+    return view("plots/edit",
+        ['plot'=>$plot , 'id'=>$id]);
     }
 
     /**
@@ -113,7 +112,7 @@ class plotsController extends Controller
                 'name'          => $request->name,
                 'sold'   =>$request->sold
             ]);
-        
+
         return redirect()->route('home');
     }
 
@@ -125,7 +124,7 @@ class plotsController extends Controller
      */
     public function destroy($id)
     {
-        
+
     }
-    
+
 }
