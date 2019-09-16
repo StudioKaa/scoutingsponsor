@@ -2,6 +2,7 @@ body {
     margin: 0;
     padding: 0;
     font-family: Calibri;
+    background: rgb(231, 238, 231);
 }
 
 header {
@@ -66,8 +67,8 @@ main .plattegrond {
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    background: rgb(231, 238, 231);
-    padding: 20px 0;
+    background: rgba(69,197,59,1) /*rgb(231, 238, 231)*/;
+    padding: 25px 0 75px 0;
 }
 
 main .plattegrond h2 {
@@ -76,7 +77,21 @@ main .plattegrond h2 {
     padding-bottom: 20px;
 }
 
+main .map {
+    border: 7px solid rgba(231,238,231,1);
+}
+
 main .plattegrond img {
     width: 1100px;
     height: 832px;
+}
+
+main .info2 {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 25px 0 50px 0;
+}
+
+main .info2 h2 {
+    font-size: 2.5em;
 }
