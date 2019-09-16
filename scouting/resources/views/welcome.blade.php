@@ -14,26 +14,20 @@
 
         <script type="text/javascript">$(function() {
                 $('.map').maphilight();
-                $('#squidheadlink').mouseover(function(e) {
-                    $('#squidhead').mouseover();
-                }).mouseout(function(e) {
-                    $('#squidhead').mouseout();
-                }).click(function(e) { e.preventDefault(); });
             });
-
         </script>
     </head>
     <body>
     <header>
         <div class="container">
             <img src="img/logo.png" alt="logo">
-            <h1>Sponser Scouting Raamsdonksveer</h1>
+            <h1>Sponsor Scouting Raamsdonksveer</h1>
         </div>
     </header>
     <main>
         <!-- de info pop up -->
         <div class="info" id="info">
-            <h2>Sonser Scouting Raamsdonksveer</h2>
+            <h2>Sponsor Scouting Raamsdonksveer</h2>
             <p>
                 Lorem ipsum dolor sit amet, consectetur adipisicing elit.
                 Aut beatae dignissimos eius eveniet nisi recusandae, saepe velit vero.
@@ -49,28 +43,33 @@
                 porro veritatis. Animi consectetur consequatur culpa cupiditate deleniti dolor dolorem eaque facilis fuga hic,
                 inventore, itaque magni modi molestiae nulla optio, tenetur vel vitae?
             </p>
+            <p>
+                Deze site maakt gebruik van cookies, als u op "close" klikt gaat u akkoord met alle cookies
+            </p>
             <img src="img/info.png" alt="info">
             <p class="close" onclick="popUp()">close</p>
         </div>
 
         <!-- de plattegrond -->
         <div class="plattegrond">
-            <h2>Sponser nu een stuk terein</h2>
-            <img src="img/plattegrond V3.png" class="map" usemap="#simple">
+            <h2>Sponsor nu een stuk terein</h2>
+            <div class="error"></div>
+            <img src="img/plattegrond V4.png" class="map" id="img" usemap="#simple">
             <map name="simple">
-
                 @foreach($plots as $plot)
                     <?php
                         $xTop = $plot->x * 44;
                         $yTop = $plot->y * 26;
                         $xBottom = $xTop + 44;
                         $yBottom = $yTop + 26;
-                   
-                        echo "<area class='area {$plot->x},{$plot->y}' shape='rect' coords='{$xTop}, {$yTop}, {$xBottom}, {$yBottom}' href=\"plots/{$plot->id}\" alt='area{$plot->x},{$plot->y}'>";
+
+                        if (true){
+                            echo "<area class='area {$plot->x}-{$plot->y}' shape='rect' coords='{$xTop}, {$yTop}, {$xBottom}, {$yBottom}' href=\"plots/{$plot->id}\" alt='area{$plot->x},{$plot->y}'>";
+                        }
                     ?>
                 @endforeach
-
             </map>
+            <div id="status"></div>
         </div>
 
     </main>

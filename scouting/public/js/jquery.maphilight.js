@@ -274,6 +274,7 @@
 			$(canvas).css(canvas_style);
 			canvas.height = this.height;
 			canvas.width = this.width;
+			canvas.id = "mapCanvas";
 
 			$(map).bind('alwaysOn.maphilight', function() {
 				// Check for areas with alwaysOn set. These are added to a *second* canvas,
@@ -344,12 +345,12 @@
 	};
 	$.fn.maphilight.defaults = {
 		fill: true,
-		fillColor: '000000',
-		fillOpacity: 0.2,
+		fillColor: 'ffffff',
+		fillOpacity: 0.3,
 		stroke: true,
-		strokeColor: 'ff0000',
+		strokeColor: '000000',
 		strokeOpacity: 1,
-		strokeWidth: 1,
+		strokeWidth: 2,
 		fade: true,
 		alwaysOn: false,
 		neverOn: false,

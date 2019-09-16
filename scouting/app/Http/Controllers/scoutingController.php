@@ -34,11 +34,12 @@ class scoutingController extends Controller
                 $Ycoord = $Ycoords[$i];
 
                 \DB::table('plots')->insert([
-                    'naam' => "test{$i}",
+                    'name' => "terrein{$i}",
                     'x' => $Xcoord,
                     'y' => $Ycoord,
                     'type' => 1,
-                    'price' => $i
+                    'price' => 0,
+                    'sold' => 0
                 ]);
             }
 
