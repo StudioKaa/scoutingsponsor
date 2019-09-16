@@ -17,4 +17,5 @@ Route::get('/', function () {
 })->name('home');
 
 Route::resource('plots', 'plotsController');
+Route::resource('admin', 'adminController');
 

@@ -35,7 +35,7 @@ class plotsController extends Controller
      */
     public function store(Request $request)
     {
-        $user = \DB::table('sponsers')
+        $user = \DB::table('sponsors')
         ->insert([
             'name'          =>$request->name, 
             'lastname'      =>$request->lastname,
@@ -43,17 +43,17 @@ class plotsController extends Controller
             'adres'         =>$request->adres,
             'email'         =>$request->email
         ]);
-        $sponserId = \DB::getPdo()->lastInsertId();
+        $sponsorId = \DB::getPdo()->lastInsertId();
 
         \DB::table('plots')
             ->where('id', $request->plotId)
             ->update([
                 'sold'          => $request->sold,
-                'sponserId'     => $sponserId
+                'sponsorId'     => $sponsorId
             ]);
 
         
-        return redirect()->route('plots.index');
+        return redirect()->route('home');
     }
 
     /**
@@ -64,22 +64,19 @@ class plotsController extends Controller
      */
     public function show($id)
     {
-        $data =\DB::select
-        ('SELECT * 
-        FROM `plots` as p 
-        left join sponsers as s 
-        on p.sponserId=s.id');
 
-        //1 id ophalen
-        //2 1 categorie selecteren uit database
-        //show teplate returnen metopgehaalde data
         $plot = \DB::table('plots')
             ->where('id',$id )
             ->first();
             //dd($plot);
 
+        $sponsor = \DB::table('sponsors')
+        ->where('id', $plot->sponsorId)
+        ->first();
+
         return view('plots/show', 
-            ['plot'=>$plot, 'data'=>$data]);           
+            ['plot'=>$plot], 
+            ['sponsor'=> $sponsor]);           
     }
 
     /**
@@ -110,11 +107,11 @@ class plotsController extends Controller
         \DB::table('plots')
             ->where('id', $id)
             ->update([
-                'name'          => $request->name,
+                'name'   =>$request->name,
                 'sold'   =>$request->sold
             ]);
         
-        return redirect()->route('home');
+        return view('plots.show', $id);
     }
 
     /**

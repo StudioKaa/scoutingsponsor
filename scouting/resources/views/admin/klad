@@ -1,0 +1,9 @@
+<ul>
+<?php
+dd($soldPlot);
+?>
+@foreach($soldPlots as $soldPlot)
+    <li><a href="{{ route('admin.show', $soldPlot->id) }}"> {{$soldPlot->name}}</a></li>
+@endforeach
+
+</ul>

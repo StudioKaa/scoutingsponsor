@@ -68,5 +68,7 @@
         <input type="hidden" name="sold" value="1">
         <input type="submit" value="koop plot">
     </form>
+
     <h1>{{$plot->name}}</h1>
-    <p>{{$plot->sold}}</p>
+    
+
