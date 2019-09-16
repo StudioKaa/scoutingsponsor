@@ -9,7 +9,6 @@ function authorise() {
     let body = document.getElementById('body');
     let auth = prompt('fill in the password', '');
 
-        window.location = "/";
     body.style.display = "none";
 
     if (auth !== "PaSsWoRd") {
