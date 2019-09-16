@@ -91,8 +91,7 @@ class plotsController extends Controller
         ->where('id',$id )
         ->first();
 
-    return view("plots/edit",
-        ['plot'=>$plot , 'id'=>$id]);
+        return view("plots/edit", ['plot'=>$plot , 'id'=>$id]);
     }
 
     /**

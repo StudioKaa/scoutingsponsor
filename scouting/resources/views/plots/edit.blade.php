@@ -8,8 +8,6 @@
     <title>Document</title>
 </head>
 <body style="background: #66b266">
-
-
 <style>
     body{
 
@@ -85,5 +83,6 @@
     </form>
 
     <h1>{{$plot->name}}</h1>
-    
-
+</div>
+</body>
+</html>
