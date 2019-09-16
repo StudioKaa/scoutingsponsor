@@ -20,8 +20,8 @@
     <body>
     <header>
         <div class="container">
-            <img src="img/logo.png" alt="logo">
-            <h1>Sponsor Scouting Raamsdonksveer</h1>
+            <img src="img/logo.png" alt="logo" style="margin: 20px;">
+            <h1>Sponser Scouting Raamsdonksveer</h1>
         </div>
     </header>
     <main>
@@ -63,9 +63,7 @@
                         $xBottom = $xTop + 44;
                         $yBottom = $yTop + 26;
 
-                        if (true){
-                            echo "<area class='area {$plot->x}-{$plot->y}' shape='rect' coords='{$xTop}, {$yTop}, {$xBottom}, {$yBottom}' href=\"plots/{$plot->id}\" alt='area{$plot->x},{$plot->y}'>";
-                        }
+                        echo "<area class='area {$plot->x},{$plot->y}' shape='rect' coords='{$xTop}, {$yTop}, {$xBottom}, {$yBottom}' href=\"plots/{$plot->id}\" alt='area{$plot->x},{$plot->y}'>";
                     ?>
                 @endforeach
             </map>

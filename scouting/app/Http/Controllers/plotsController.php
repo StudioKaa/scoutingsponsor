@@ -35,12 +35,24 @@ class plotsController extends Controller
      */
     public function store(Request $request)
     {
-        \DB::table('plots')
+        $user = \DB::table('sponsers')
         ->insert([
-            'name'          => $request->plot, 
-            'sold'   =>$request->sold
+            'name'          =>$request->name,
+            'lastname'      =>$request->lastname,
+            'phone'         =>$request->phone,
+            'adres'         =>$request->adres,
+            'email'         =>$request->email
         ]);
-        
+        $sponserId = \DB::getPdo()->lastInsertId();
+
+        \DB::table('plots')
+            ->where('id', $request->plotId)
+            ->update([
+                'sold'          => $request->sold,
+                'sponserId'     => $sponserId
+            ]);
+
+
         return redirect()->route('plots.index');
     }
 
@@ -52,16 +64,21 @@ class plotsController extends Controller
      */
     public function show($id)
     {
-        
+        $data =\DB::select('SELECT * 
+        FROM `plots` 
+        left join sponsers as s 
+        on plots.sponserId=s.id');
+
         //1 id ophalen
         //2 1 categorie selecteren uit database
         //show teplate returnen metopgehaalde data
         $plot = \DB::table('plots')
             ->where('id',$id )
             ->first();
+            //dd($plot);
 
-        return view('plots/show', 
-            ['plot'=>$plot]);           
+        return view('plots/show',
+            ['plot'=>$plot, 'data'=>$data]);
     }
 
     /**
@@ -76,8 +93,8 @@ class plotsController extends Controller
         ->where('id',$id )
         ->first();
 
-    return view("plots/edit", 
-        ['plot'=>$plot]);    
+    return view("plots/edit",
+        ['plot'=>$plot , 'id'=>$id]);
     }
 
     /**
@@ -92,11 +109,11 @@ class plotsController extends Controller
         \DB::table('plots')
             ->where('id', $id)
             ->update([
-                'name'          => $request->plot,
+                'name'          => $request->name,
                 'sold'   =>$request->sold
             ]);
-        
-        return redirect()->route('plots.index');
+
+        return redirect()->route('home');
     }
 
     /**
@@ -107,10 +124,7 @@ class plotsController extends Controller
      */
     public function destroy($id)
     {
+
     }
-    
-    public function returning()
-    {
-        return view('welcome');
-    }
+
 }

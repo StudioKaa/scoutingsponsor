@@ -6,10 +6,23 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
 </head>
-<body>
-    <h1>{{$plot->name}}</h1>
-    <p>{{$plot->sold}}</p>
-    <!-- <a href="{{ route('plots.edit', $plot->id) }}">edit</a></p> -->
-    <a href="{{ route('home') }}">Go back to all plots</a></p>
+<?php
+
+
+?>
+<body style="background: #83e561">
+<div class="showklass" style=" text-align: center;">
+    <h1 style="color: #effbeb;">{{$plot->name}}</h1>
+    <p  style="font-size: 30px; color: #effbeb;">{{$plot->sold}}</p>
+
+
+       @if($plot->sold == 0)
+        <a style="color: #effbeb;" href="{{ route('plots.edit', $plot->id) }}">edit</a><br>
+       @endif
+
+    <a style="color:#effbeb" href="{{ route('home') }}">Go back to all plots</a>
+
+</div>
+
 </body>
 </html>
