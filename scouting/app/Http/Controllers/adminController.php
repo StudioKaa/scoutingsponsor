@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-class plotsController extends Controller
+class adminController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -13,8 +13,18 @@ class plotsController extends Controller
      */
     public function index()
     {
-        $plots = \DB::select('SELECT * FROM plots');
-        return view('plots/index', ['plots'=>$plots]);
+        // $soldPlots = \DB::select('SELECT * FROM plots WHERE sponsorId!= 0');
+        // $sponsors = \DB::select('SELECT * FROM sponsors WHERE id in (select sponsorid from plots where sponsorid != 0)');
+
+
+        $fulldata = \DB::select('SELECT * FROM sponsors as s left join plots as p on p.sponsorid=s.id');
+        // dd($fulldata);
+        
+        // $totalinfo = array($soldPlots, $sponsors);
+        // dd($totalinfo);
+        //return view('admin/index', ['soldPlots'=>$soldPlots, 'sponsors' =>$sponsors]);
+        return view('admin/index', ['fulldata'=> $fulldata]);   
+       
     }
 
     /**
@@ -24,7 +34,7 @@ class plotsController extends Controller
      */
     public function create()
     {
-        return view('plots/create');
+        //
     }
 
     /**
@@ -35,25 +45,7 @@ class plotsController extends Controller
      */
     public function store(Request $request)
     {
-        $user = \DB::table('sponsors')
-        ->insert([
-            'name'          =>$request->name,
-            'lastname'      =>$request->lastname,
-            'phone'         =>$request->phone,
-            'adres'         =>$request->adres,
-            'email'         =>$request->email
-        ]);
-        $sponsorId = \DB::getPdo()->lastInsertId();
-
-        \DB::table('plots')
-            ->where('id', $request->plotId)
-            ->update([
-                'sold'          => $request->sold,
-                'sponsorId'     => $sponsorId
-            ]);
-
-        
-        return redirect()->route('home');
+        //
     }
 
     /**
@@ -64,19 +56,15 @@ class plotsController extends Controller
      */
     public function show($id)
     {
-
-        $plot = \DB::table('plots')
-            ->where('id',$id )
-            ->first();
-            //dd($plot);
-
         $sponsor = \DB::table('sponsors')
-        ->where('id', $plot->sponsorId)
+        ->where('id', $id)
         ->first();
-        
+
+        $soldPlots = \DB::select('SELECT * FROM plots WHERE sponsorId != 0');
+
         return view('plots/show', 
-            ['plot'=>$plot], 
-            ['sponsor'=> $sponsor]);           
+            ['soldPlots'=>$soldPlots], 
+            ['sponsor'=> $sponsor]);       
     }
 
     /**
@@ -87,12 +75,7 @@ class plotsController extends Controller
      */
     public function edit($id)
     {
-        $plot = \DB::table('plots')
-        ->where('id',$id )
-        ->first();
-
-    return view("plots/edit",
-        ['plot'=>$plot , 'id'=>$id]);
+        //
     }
 
     /**
@@ -105,13 +88,12 @@ class plotsController extends Controller
     public function update(Request $request, $id)
     {
         \DB::table('plots')
-            ->where('id', $id)
-            ->update([
-                'name'   =>$request->name,
-                'sold'   =>$request->sold
-            ]);
-        
-        return view('plots.show', $id);
+        ->where('id', $id)
+        ->update([
+            'sold'   =>$request->sold
+        ]);
+    
+        return redirect()->route('admin.index');
     }
 
     /**
@@ -122,7 +104,6 @@ class plotsController extends Controller
      */
     public function destroy($id)
     {
-
+        //
     }
-
 }

@@ -27,31 +27,12 @@
     @foreach ($errors->all() as $error)
               <li>{{ $error }}</li>
             @endforeach
-    <!-- <form method="POST" action="{{route('plots.update',$plot->id)}}">
-    @csrf
-    @method('PATCH')
 
-    <div class="form-group">
-        <label for="plots">plot'</label><br>
-        <input type="text" id="plot" name="plot" value="{{$plot->name}}" required><br>
-    </div>
-
-    <div class="form-group">
-        <label for="sold">sold</label><br>
-        <textarea name="sold" cols="40" rows="5" id="sold" name="sold"  required> {{$plot->sold}} </textarea><br>
-    </div>
-
-    <div class="form-group">
-
-        <input type="submit" value="edit plot">
-    </div>
-
-</form> -->
 <div style="background: ">
     <form method="POST" action="{{route('plots.store')}}">
         @csrf
 <div style="display: flex; justify-content: flex-start">
-    <h1  style="color: #CCE5CC; margin: 20px;">{{$plot->name}}</h1>
+    <h1  style="color: #CCE5CC; margin: 20px;">{{$plot->plotname}}</h1>
     <p style="color: #CCE5CC; margin: 20px; font-size: 30px;" >{{$plot->sold}}</p>
 </div>
         <div class="form-group">
@@ -84,6 +65,6 @@
         <input style="background: #99cc99; color: #CCE5CC;" type="submit" value="koop plot">
     </form>
 
-    <h1>{{$plot->name}}</h1>
+    <h1>{{$plot->plotname}}</h1>
     
 
