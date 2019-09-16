@@ -15,9 +15,11 @@
     @if($plot->sold == 0)
     
         <p>Dit plot is nog niet verkocht!</p>
-    
+
+    @elseif($plot->sold == 1)
+        <p>dit plot is bijna verkocht</p>
     @else
-   
+
         <p>Helaas!</p>
         <p>Dit plot is al verkocht aan {{$sponsor->plotname}}.</p>
     
