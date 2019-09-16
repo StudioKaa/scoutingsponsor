@@ -31,7 +31,9 @@
   
     <a href="{{ route('home') }}">Go back to all plots</a>
 
+    <a style="color:#effbeb" href="{{ route('home') }}">Go back to all plots</a>
 
+</div>
 
 </body>
 </html>

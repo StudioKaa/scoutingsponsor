@@ -37,7 +37,7 @@ class plotsController extends Controller
     {
         $user = \DB::table('sponsors')
         ->insert([
-            'name'          =>$request->name, 
+            'name'          =>$request->name,
             'lastname'      =>$request->lastname,
             'phone'         =>$request->phone,
             'adres'         =>$request->adres,
@@ -91,8 +91,8 @@ class plotsController extends Controller
         ->where('id',$id )
         ->first();
 
-    return view("plots/edit", 
-        ['plot'=>$plot , 'id'=>$id]);    
+    return view("plots/edit",
+        ['plot'=>$plot , 'id'=>$id]);
     }
 
     /**
@@ -122,7 +122,7 @@ class plotsController extends Controller
      */
     public function destroy($id)
     {
-        
+
     }
-    
+
 }
