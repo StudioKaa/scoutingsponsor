@@ -3,18 +3,27 @@
     @foreach($fulldata as $data)
     <ul>
         <li>Plot: {{$data->plotname}} <br>
+            @if($data->sold == 2)
 
-            @if({{data->sold}} == 2)
-                <p>Status: Verkocht aan</p> {{$data->name}} {{$data->lastname}}<br>
-                @endif
-            @if({{$data->sold== 1)
-                <p>status: Pending   </p> {{$data->name}} {{$data->lastname}}
+                Status: Verkocht aan {{$data->name}} {{$data->lastname}}<br>
+          
+
+            @elseif($data->sold == 1)
+
+                <form method="POST" action="{{route('admin.update',$data->id)}}">
+                    @csrf
+                    @method('PUT') 
+                    input
+                    <input type="hidden" name="id" value="{{$data->sponsorId}}">
+                    <input type="hidden" name="sold" value="2">
+                <input type="submit" value="Verkocht">
+
+                status: Pending    {{$data->name}} {{$data->lastname}}<br>
+
             @endif
-
-                <p>Verkocht voor:    </p>{{$data->price}}<br>
-                <p>Telefoon nummer:  </p>{{$data->phone}}<br>
-                <p>Email:            </p>{{$data->email}}<br>
-                <p>addres:           </p>{{$data->adres}}<br>
+                Telefoon nummer:  {{$data->phone}}<br>
+                Email:            {{$data->email}}<br>
+                addres:           {{$data->adres}}<br>
             </li>
     </ul>
 

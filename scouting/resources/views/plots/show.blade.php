@@ -11,7 +11,7 @@
 
 ?>
 <body>
-    <h1>Plot naam: {{$plot->name}}</h1>
+    <h1>Plot naam: {{$plot->plotname}}</h1>
     @if($plot->sold == 0)
     
         <p>Dit plot is nog niet verkocht!</p>
@@ -21,7 +21,7 @@
     @else
 
         <p>Helaas!</p>
-        <p>Dit plot is al verkocht aan {{$sponsor->name}}.</p>
+        <p>Dit plot is al verkocht aan {{$sponsor->plotname}}.</p>
     
     @endif
 
@@ -33,7 +33,6 @@
   
     <a href="{{ route('home') }}">Go back to all plots</a>
 
-    <a style="color:#effbeb" href="{{ route('home') }}">Go back to all plots</a>
 
 </div>
 
