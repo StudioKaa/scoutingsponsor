@@ -1,3 +1,8 @@
+
+<script src="js/main.js"></script>
+
+<body onload="authorise()">
+
 <h1>Alle verkochten plots:</h1>
 
     @foreach($fulldata as $data)
@@ -29,3 +34,4 @@
 
     @endforeach    
        
+    </body>

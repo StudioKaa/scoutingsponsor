@@ -7,7 +7,7 @@ function authorise() {
 
     let auth = prompt('fill in the password', '');
 
-    if (auth !== "password") {
-        window.location = "{{ route('zet hir de route naar de pagina als je een verkeerd wachtwoord invult') }}";
+    if (auth !== "PaSsWoRd") {
+        window.location = "/";
     }
 }
