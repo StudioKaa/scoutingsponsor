@@ -1,7 +1,7 @@
 
 <script src="js/main.js"></script>
 
-<body id="body" onload="authorise()">
+<body id="body" style="display: none" onload="authorise()">
 
 <h1>Alle verkochten plots:</h1>
 

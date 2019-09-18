@@ -7,9 +7,10 @@ function authorise() {
     //geef je body de id body
 
     let body = document.getElementById('body');
-    let auth = prompt('fill in the password', '');
 
-    body.style.display = "none";
+    // body.style.display = "none";
+
+    let auth = prompt('fill in the password', '');
 
     if (auth !== "PaSsWoRd") {
         window.location = "/";
