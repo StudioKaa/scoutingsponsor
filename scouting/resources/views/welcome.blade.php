@@ -6,12 +6,18 @@
 
         <title>Scouting</title>
 
-        <link rel="stylesheet" href="css/main.css">
+        <link rel="stylesheet" href="{{ asset('css/main.css') }}">
 
+        <!-- dit linkt naar de js extentie jquery -->
         <script type="text/javascript" src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+
+        <!-- dit linkt naar de jquery code voor het laten zien van de vakjes-->
         <script type="text/javascript" src="js/jquery.maphilight.js"></script>
+
+        <!-- dit linkt naar de js file -->
         <script src="js/main.js"></script>
 
+        <!-- dit stukje script zorgt er voor dat je de vakjes kan zien -->
         <script type="text/javascript">$(function() {
                 $('.map').maphilight();
             });
@@ -49,17 +55,37 @@
 
         <!-- de plattegrond -->
         <div class="plattegrond">
+
+            <!-- de titel -->
             <h2>Sponsor nu een stuk terein</h2>
+
+            <!-- een error vakje -->
             <div class="error"></div>
+
+            <!-- de plattegrond afbeelding -->
             <img src="img/plattegrond V4.png" class="map" id="img" usemap="#simple">
+
+            <!-- de map waar de vakjes op komen-->
             <map name="simple">
+                <!-- een foreach die de de vakjes aanmaakt -->
                 @foreach($plots as $plot)
                     <?php
+                        //de data uit de database word met formules naar de juiste coords getransformeerd
+
+                        //xTop is de X cord voor de linker bovenhoek van een vakje
                         $xTop = $plot->x * 44;
+
+                        //de yTop is Y cord voor de linker bovenhoek van een vakje
                         $yTop = $plot->y * 26;
+
+                        //de xBottom is de X cord voor de rechter onderhoek van een vakje
                         $xBottom = $xTop + 44;
+
+                        //de yBottom is de Y cord voor de rechter onderhoek van een vakje
                         $yBottom = $yTop + 26;
 
+                        //check of het vakje al verkocht is
+                        //een area is een vakje
                         if ($plot->sold == 1){
                             echo "<area class='area {$plot->x},{$plot->y}' shape='rect' coords='{$xTop}, {$yTop}, {$xBottom}, {$yBottom}'
                                     href=\"plots/{$plot->id}\" alt='area{$plot->x},{$plot->y}'

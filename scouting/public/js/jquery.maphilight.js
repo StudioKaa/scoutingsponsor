@@ -1,3 +1,5 @@
+// het begint pas interessant te worden vanaf regel 349
+
 (function(root, factory) {
     if (typeof define === 'function' && define.amd) {
         define(['jquery'], factory);
@@ -343,6 +345,8 @@
 			img.addClass('maphilighted');
 		});
 	};
+
+	//hier kan je de standaard style van een vakje veranderen
 	$.fn.maphilight.defaults = {
 		fill: true,
 		fillColor: 'ffffff',
