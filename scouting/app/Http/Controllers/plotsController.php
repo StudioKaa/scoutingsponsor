@@ -103,14 +103,16 @@ class plotsController extends Controller
      */
     public function update(Request $request, $id)
     {
-        \DB::table('plots')
-            ->where('id', $id)
-            ->update([
-                'name'   =>$request->name,
-                'sold'   =>$request->sold
-            ]);
-        
-        return view('plots.show', $id);
+        echo "update page";
+
+//        \DB::table('plots')
+//            ->where('id', $id)
+//            ->update([
+//                'name'   =>$request->name,
+//                'sold'   =>$request->sold
+//            ]);
+//
+//        return view('plots.show', $id);
     }
 
     /**
