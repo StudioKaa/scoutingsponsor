@@ -17,3 +17,18 @@ body{
 .buttonkoop{
     align-items: center;
 }
+p{
+    color: #CCE5CC;
+    margin: 20px;
+    font-size: 22px;
+}
+a{
+    color: #CCE5CC;
+    margin: 20px;
+    font-size: 22px;
+}
+h1{
+    color: #CCE5CC;
+    margin: 20px;
+    font-size: 22px;
+}

@@ -8,8 +8,6 @@
     <link rel="stylesheet" href="{{asset('css/app.css')}}">
     <link rel="stylesheet" href="{{asset('css/costum.css')}}">
 
-
-<body  style="background: #66b266;">
 <body>
 <header>
     <img src="/img/logo.png" alt="logo" style="margin: 20px;">
@@ -21,28 +19,27 @@
     <div class="container" style="text-align: center">
 
 
-        <h1 style="color: #CCE5CC; margin: 20px;" >Plot naam: {{$plot->plotname}}</h1>
+        <h1>Plot naam: {{$plot->plotname}}</h1>
         @if($plot->sold == 0)
 
-            <p style="color: #CCE5CC; margin: 20px;font-size: 22px;">Dit plot is nog niet verkocht!</p>
+            <p>Dit plot is nog niet verkocht!</p>
 
         @elseif($plot->sold == 1)
-            <p style="color: #CCE5CC; margin: 20px;font-size: 22px;">dit plot is bijna verkocht</p>
+            <p>dit plot is bijna verkocht</p>
         @else
 
-            <p style="color: #CCE5CC; margin: 20px;">Helaas!</p>
-            <p style="color: #CCE5CC; margin: 20px;font-size: 22px;">Dit plot is al verkocht aan {{$sponsor->plotname}}.</p>
+            <p>Helaas!</p>
+            <p>Dit plot is al verkocht aan {{$sponsor->plotname}}.</p>
 
         @endif
 
         @if($plot->sold == 0)
 
-            <a style="color: #CCE5CC; margin: 20px; font-size: 22px;" href="{{ route('plots.edit', $plot->id) }}">Koop Plot</a><br><br>
+            <a href="{{ route('plots.edit', $plot->id) }}">Koop Plot</a><br><br>
 
         @endif
 
-        <a style="color: #CCE5CC; margin: 20px;  font-size: 22px;"  href="{{ route('home') }}">Go back to all plots</a>
-
+        <a href="{{ route('home') }}">Go back to all plots</a>
 
 
     </div>
