@@ -18,7 +18,6 @@
                 <form method="POST" action="{{route('admin.update',$data->id)}}">
                     @csrf
                     @method('PUT') 
-                    input
                     <input type="hidden" name="id" value="{{$data->sponsorId}}">
                     <input type="hidden" name="sold" value="2">
                 <input type="submit" value="Verkocht">

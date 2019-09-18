@@ -14,6 +14,15 @@ class plotsController extends Controller
     public function index()
     {
         $plots = \DB::select('SELECT * FROM plots');
+
+
+
+                                                        if(empty($plots->id))
+                                                        {
+                                                            echo 'sorry. Deze request is niet gelukt';
+                                                            die();
+                                                        }
+
         return view('plots/index', ['plots'=>$plots]);
     }
 
@@ -24,7 +33,9 @@ class plotsController extends Controller
      */
     public function create()
     {
-        return view('plots/create');
+                                                        echo 'sorry. Deze request is niet gelukt.';
+                                                        die();
+
     }
 
     /**
@@ -65,15 +76,23 @@ class plotsController extends Controller
     public function show($id)
     {
 
+
         $plot = \DB::table('plots')
             ->where('id',$id )
             ->first();
             //dd($plot);
 
+                                            if($plot->sold == 2)
+                                            {
+                                                echo 'sorry. Deze request is niet gelukt';
+                                                die();
+                                            }
         $sponsor = \DB::table('sponsors')
         ->where('id', $plot->sponsorId)
         ->first();
         
+
+
         return view('plots/show', 
             ['plot'=>$plot], 
             ['sponsor'=> $sponsor]);           
@@ -90,6 +109,11 @@ class plotsController extends Controller
         $plot = \DB::table('plots')
         ->where('id',$id )
         ->first();
+                                                    if(empty($plot->id))
+                                                    {
+                                                        echo 'sorry. Deze request is niet gelukt';
+                                                        die();
+                                                    }
 
         return view("plots/edit", ['plot'=>$plot , 'id'=>$id]);
     }

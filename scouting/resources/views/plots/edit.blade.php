@@ -45,7 +45,7 @@
 
     <div class="form-group">
     <label style="color: #CCE5CC" for="phone">telefoon</label><br>
-        <input type="tel" id="phone" name="phone" required><br>
+        <input type="tel" pattern="[0-9]{3}-[0-9]{2}-[0-9]{3}" id="phone" name="phone" required><br>
     </div>
 
     <div class="form-group">
