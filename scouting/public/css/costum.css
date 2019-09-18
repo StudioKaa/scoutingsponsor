@@ -1,0 +1,19 @@
+header {
+    background-image: url("../img/headerBG.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    height: 350px;
+}
+header .container h1 {
+    margin: 0px auto 0 18%;
+    color: #fff;
+    font-weight: bold;
+    font-size: 3em;
+}
+body{
+    background-color:rgb(69, 197, 59);
+}
+.buttonkoop{
+    align-items: center;
+}

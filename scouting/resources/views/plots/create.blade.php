@@ -1,11 +1,13 @@
+
+
 <!-- <form action="{{route('plots.store')}}" method="POST">
         @csrf
-        
+
         <div class="form-group">
         <label for="name">naam</label><br>
         <input type="text" id="name" name="name" required><br>
     </div>
-    
+
     <div class="form-group">
     <label for="lastname">Achternaam</label><br>
         <input type="text" id="lastname" name="lastname" required><br>
