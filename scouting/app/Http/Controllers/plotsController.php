@@ -46,11 +46,7 @@ class plotsController extends Controller
      */
     public function store(Request $request)
     {
-
-
-        dd($request);
-
-        $user = \DB::table('sponsors')
+        \DB::table('sponsors')
         ->insert([
             'name'          =>$request->name,
             'lastname'      =>$request->lastname,
@@ -60,6 +56,7 @@ class plotsController extends Controller
             'mail'          =>$request->mail,
         ]);
         $sponsorId = \DB::getPdo()->lastInsertId();
+
 
         \DB::table('plots')
             ->where('id', $request->plotId)

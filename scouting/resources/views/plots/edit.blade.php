@@ -61,9 +61,8 @@ p {
 </header>
 <main>
     <div class="container">
-    <form action="{{route('plots.update', $id)}}" method="POST">
+    <form action="{{route('plots.store', $id)}}" method="POST">
         @csrf
-        @method('PUT')
 
         <input  class="form-control" type="hidden" name="sold" value="1">
 

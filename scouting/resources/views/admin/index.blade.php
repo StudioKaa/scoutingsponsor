@@ -12,7 +12,7 @@
 
 <script src="js/main.js"></script>
 
-<body  style="background: #66b266;" id="body" onload="authorise()">
+<body  style="display: none; background: #66b266;" id="body" onload="authorise()">
 
 <h1 style="color: #CCE5CC; margin: 20px;">Alle verkochten plots:</h1>
 
