@@ -27,7 +27,8 @@
             @endif
                 Telefoon nummer:  {{$data->phone}}<br>
                 Email:            {{$data->email}}<br>
-                addres:           {{$data->adres}}<br>
+                Addres:           {{$data->adres}}<br>
+                Prijs:            {{$data->price}}<br>
             </li>
     </ul>
 

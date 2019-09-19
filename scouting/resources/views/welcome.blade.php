@@ -66,7 +66,7 @@
                                     data-maphilight='{\"fillColor\":\"FFFF00\", \"fillOpacity\":0.6}'>";
                         }elseif ($plot->sold == 2){
                             echo "<area class='area {$plot->x},{$plot->y}' shape='rect' coords='{$xTop}, {$yTop}, {$xBottom}, {$yBottom}'
-                                    href=\"javascipt:void(0)\" alt='area{$plot->x},{$plot->y}'
+                                    href=\"plots/{$plot->id}\" alt='area{$plot->x},{$plot->y}'
                                     data-maphilight='{\"fillColor\":\"FF0000\", \"fillOpacity\":0.6}'>";
                         }else{
                             echo "<area class='area {$plot->x},{$plot->y}' shape='rect' coords='{$xTop}, {$yTop}, {$xBottom}, {$yBottom}'

@@ -9,9 +9,10 @@ function authorise() {
     let body = document.getElementById('body');
     let auth = prompt('fill in the password', '');
 
+
     body.style.display = "none";
 
-    if (auth !== "PaSsWoRd") {
+    if (auth !== "P") {
         window.location = "/";
     }
     else{

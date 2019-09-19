@@ -46,13 +46,18 @@ class plotsController extends Controller
      */
     public function store(Request $request)
     {
+
+
+        dd($request);
+
         $user = \DB::table('sponsors')
         ->insert([
             'name'          =>$request->name,
             'lastname'      =>$request->lastname,
             'phone'         =>$request->phone,
             'adres'         =>$request->adres,
-            'email'         =>$request->email
+            'email'         =>$request->email,
+            'mail'          =>$request->mail,
         ]);
         $sponsorId = \DB::getPdo()->lastInsertId();
 
@@ -60,7 +65,8 @@ class plotsController extends Controller
             ->where('id', $request->plotId)
             ->update([
                 'sold'          => $request->sold,
-                'sponsorId'     => $sponsorId
+                'sponsorId'     => $sponsorId,
+                'price' =>$request->price
             ]);
 
         
@@ -82,11 +88,7 @@ class plotsController extends Controller
             ->first();
             //dd($plot);
 
-                                            if($plot->sold == 2)
-                                            {
-                                                echo 'sorry. Deze request is niet gelukt';
-                                                die();
-                                            }
+        
         $sponsor = \DB::table('sponsors')
         ->where('id', $plot->sponsorId)
         ->first();
@@ -106,12 +108,19 @@ class plotsController extends Controller
      */
     public function edit($id)
     {
+   
+
         $plot = \DB::table('plots')
         ->where('id',$id )
         ->first();
                                                     if(empty($plot->id))
                                                     {
                                                         echo 'sorry. Deze request is niet gelukt';
+                                                        die();
+                                                    }
+                                                    elseif($plot->sold == 2)
+                                                    {
+                                                        echo 'sorry. Dit plot is helaas al verkocht!';
                                                         die();
                                                     }
 
