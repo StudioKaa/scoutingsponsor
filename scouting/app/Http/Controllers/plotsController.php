@@ -139,10 +139,10 @@ class plotsController extends Controller
         \DB::table('plots')
             ->where('id', $id)
             ->update([
-                'name'   =>$request->name,
+                'price'   =>$request->price,
                 'sold'   =>$request->sold
             ]);
-        
+
         return view('plots.show', $id);
     }
 

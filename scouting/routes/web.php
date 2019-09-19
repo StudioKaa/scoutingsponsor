@@ -16,6 +16,7 @@ Route::get('/', function () {
         return view('welcome', ['plots'=>$plots]);
 })->name('home');
 
+Route::resource('letter', 'letterController');
 Route::resource('plots', 'plotsController');
 Route::resource('admin', 'adminController');
 

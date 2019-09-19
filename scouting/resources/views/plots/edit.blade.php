@@ -58,26 +58,23 @@ p {
         <label style="color: #CCE5CC" for="name">naam</label><br>
         <input type="text" id="name" name="name" required><br>
     </div>
+</header>
+<main>
+    <div class="container">
+    <form action="{{route('plots.update', $id)}}" method="POST">
+        @csrf
+        @method('PUT')
 
-    <div class="form-group">
-    <label style="color: #CCE5CC" for="lastname">Achternaam</label><br>
-        <input type="text" id="lastname" name="lastname" required><br>
-    </div>
+        <input  class="form-control" type="hidden" name="sold" value="1">
 
-    <div class="form-group">
-    <label style="color: #CCE5CC" for="phone">telefoon</label><br>
-        <input type="tel" id="phone" name="phone" required><br>
-    </div>
+        <label for="name">voornaam</label>
+        <input class="form-control" type="text" name="name" required>
 
-    <div class="form-group">
-    <label style="color: #CCE5CC" for="adres">addres</label><br>
-        <input type="text" id="adres" name="adres" required><br>
-    </div>
+        <label for="lastname">achternaam</label>
+        <input class="form-control" type="text" name="lastname" required>
 
-    <div class="form-group">
-    <label  style="color: #CCE5CC" for="email">email</label><br>
-        <input type="email" id="email" name="email" required><br>
-    </div>
+        <label for="phone">telefoon</label>
+        <input class="form-control" type="tel" name="phone" required>
 
     <div class="pricing">
         <input  type="radio" name="price" value="50" checked onclick="show1();" value="igotnone">   €50 <br>
@@ -105,3 +102,14 @@ p {
 
     <h1>{{$plot->plotname}}</h1>
 
+        <label for="price">prijs</label>
+        <input class="form-control" type="number" name="price" min="50" step=".01" required>
+
+        <div class="buttonkoop" style="display: flex; justify-content: center;" >
+            <input class="btn btn-primary" type="submit" value="koop" style="margin: 10px; width: 200px;">
+        </div>
+    </form>
+    </div>
+</main>
+</body>
+</html>
