@@ -15,13 +15,11 @@ class plotsController extends Controller
     {
         $plots = \DB::select('SELECT * FROM plots');
 
-
-
-                                                        if(empty($plots->id))
-                                                        {
-                                                            echo 'sorry. Deze request is niet gelukt';
-                                                            die();
-                                                        }
+        if(empty($plots->id))
+        {
+            echo 'sorry. Deze request is niet gelukt';
+            die();
+        }
 
         return view('plots/index', ['plots'=>$plots]);
     }
@@ -33,9 +31,8 @@ class plotsController extends Controller
      */
     public function create()
     {
-                                                        echo 'sorry. Deze request is niet gelukt.';
-                                                        die();
-
+        echo 'sorry. Deze request is niet gelukt.';
+        die();
     }
 
     /**
@@ -46,6 +43,10 @@ class plotsController extends Controller
      */
     public function store(Request $request)
     {
+        if ($request->mail == null){
+            $request->mail = 0;
+        }
+
         \DB::table('sponsors')
         ->insert([
             'name'          =>$request->name,
@@ -63,7 +64,8 @@ class plotsController extends Controller
             ->update([
                 'sold'          => $request->sold,
                 'sponsorId'     => $sponsorId,
-                'price' =>$request->price
+                'price'
+                =>$request->price
             ]);
 
         
@@ -78,12 +80,9 @@ class plotsController extends Controller
      */
     public function show($id)
     {
-
-
         $plot = \DB::table('plots')
             ->where('id',$id )
             ->first();
-            //dd($plot);
 
         
         $sponsor = \DB::table('sponsors')
@@ -110,16 +109,17 @@ class plotsController extends Controller
         $plot = \DB::table('plots')
         ->where('id',$id )
         ->first();
-                                                    if(empty($plot->id))
-                                                    {
-                                                        echo 'sorry. Deze request is niet gelukt';
-                                                        die();
-                                                    }
-                                                    elseif($plot->sold == 2)
-                                                    {
-                                                        echo 'sorry. Dit plot is helaas al verkocht!';
-                                                        die();
-                                                    }
+
+        if(empty($plot->id))
+        {
+            echo 'sorry. Deze request is niet gelukt';
+            die();
+        }
+        elseif($plot->sold == 2)
+        {
+            echo 'sorry. Dit plot is helaas al verkocht!';
+            die();
+        }
 
         return view("plots/edit", ['plot'=>$plot , 'id'=>$id]);
     }
